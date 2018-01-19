@@ -8,7 +8,7 @@ namespace BaoCaoSuCo.Service
 {
     public interface ISuCoService
     {
-        void Add(SuCo suCo);
+        SuCo Add(SuCo suCo);
 
         void Update(SuCo suCo);
 
@@ -35,9 +35,9 @@ namespace BaoCaoSuCo.Service
             _suCoRepository = suCoRepository;
             _unitOfWork = unitOfWork;
         }
-        public void Add(SuCo suCo)
+        public SuCo Add(SuCo suCo)
         {
-            _suCoRepository.Add(suCo);
+            return _suCoRepository.Add(suCo);
         }
 
         public void Detele(int id)

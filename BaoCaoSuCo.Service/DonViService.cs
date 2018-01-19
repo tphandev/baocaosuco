@@ -11,7 +11,7 @@ namespace BaoCaoSuCo.Service
 {
     public interface IDonViService
     {
-        void Add(DonVi donVi);
+        DonVi Add(DonVi donVi);
 
         void Update(DonVi donVi);
 
@@ -35,9 +35,9 @@ namespace BaoCaoSuCo.Service
             _donViRepository = donViRepository;
             _unitOfWork = unitOfWork;
         }
-        public void Add(DonVi donVi)
+        public DonVi Add(DonVi donVi)
         {
-            _donViRepository.Add(donVi);
+            return _donViRepository.Add(donVi);
         }
 
         public void Detele(string MaDonVi)

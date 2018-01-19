@@ -16,6 +16,7 @@ namespace BaoCaoSuCo.Data
         }
         public DbSet<SuCo> SuCos { get; set; }
         public DbSet<DonVi> Donvis { get; set; }
+        public DbSet<Error> Errors { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

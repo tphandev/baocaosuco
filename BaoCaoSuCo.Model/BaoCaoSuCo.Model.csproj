@@ -52,6 +52,7 @@
     <Compile Include="Abstract\Auditable.cs" />
     <Compile Include="Abstract\IAudiable.cs" />
     <Compile Include="Models\DonVi.cs" />
+    <Compile Include="Models\Error.cs" />
     <Compile Include="Models\SuCo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
