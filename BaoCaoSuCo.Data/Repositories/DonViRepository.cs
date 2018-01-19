@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace BaoCaoSuCo.Data.Repositories
 {
-    public class DonViRepository : RepositoryBase<DonVi>
+    public interface IDonViRepository:IRepository<DonVi>
+    {
+
+    }
+    public class DonViRepository : RepositoryBase<DonVi>,IDonViRepository
     {
         public DonViRepository(IDbFactory dbFactory) : base(dbFactory)
         {

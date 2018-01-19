@@ -8,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace BaoCaoSuCo.Data.Repositories
 {
-    public class SuCoRepository : RepositoryBase<SuCo>
+    public interface ISuCoRepository : IRepository<SuCo>
+    {
+
+    }
+    public class SuCoRepository : RepositoryBase<SuCo>,ISuCoRepository
     {
         public SuCoRepository(IDbFactory dbFactory) : base(dbFactory)
         {
