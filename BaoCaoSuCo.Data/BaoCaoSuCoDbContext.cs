@@ -1,4 +1,5 @@
 ﻿using BaoCaoSuCo.Model.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BaoCaoSuCo.Data
 {
-    public class BaoCaoSuCoDbContext:DbContext
+    public class BaoCaoSuCoDbContext : IdentityDbContext<ApplicationUser>
     {
         public BaoCaoSuCoDbContext() : base("BaoCaoSuCoConnection")
         {
@@ -18,9 +19,16 @@ namespace BaoCaoSuCo.Data
         public DbSet<DonVi> Donvis { get; set; }
         public DbSet<Error> Errors { get; set; }
 
+        public static BaoCaoSuCoDbContext Create()
+        {
+            return new BaoCaoSuCoDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
+          
         }
     }
 }
